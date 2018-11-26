@@ -9,13 +9,17 @@ class FootballPlayerManager
 
   def stronger_players
     # TODO: Implement me pls
+    @power = @player[:power]
+    Player.where("power > ?", @power)
   end
 
   def set_power(value)
-    # TODO: I need body
+    @player.update(power: value)
   end
 
   def copy_player
     # TODO: I feel empty inside
+    new_player = @player.dup
+    new_player.save
   end
 end
